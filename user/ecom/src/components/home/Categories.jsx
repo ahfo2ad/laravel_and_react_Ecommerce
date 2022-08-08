@@ -89,6 +89,7 @@ export class Categories extends Component {
 
                         </Col>
                     </Row>
+                    
                 </Container>
             </Fragment>
         );
