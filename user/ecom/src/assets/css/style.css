@@ -1,3 +1,16 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700;800&family=Roboto+Condensed:wght@300;400;700&display=swap");
+
+@import "bigslider.css";
+@import "button.css";
+@import "card.css";
+@import "footer.css";
+@import "megamenu.css";
+@import "navmenuDesktop.css";
+@import "navmenuMobile.css";
+@import "typo.css";
+
+
+
 body {
     background-color: #777;
 }
