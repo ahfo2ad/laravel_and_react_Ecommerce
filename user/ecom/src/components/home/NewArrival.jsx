@@ -5,11 +5,26 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 class NewArrival extends Component {
+
+    constructor(props) {
+        super(props);
+        this.next     = this.next.bind(this);
+        this.previous = this.previous.bind(this);
+    }
+    next() {
+        this.slider.slickNext();
+    }
+    previous() {
+        this.slider.slickPrev();
+    }
+
+
+
     render() {
 
         var settings = {
             dots: true,
-            infinite: false,
+            infinite: true,
             speed: 500,
             autoplay: true,
             autoplaySpeed: 3000,
@@ -49,13 +64,22 @@ class NewArrival extends Component {
             <Fragment>
                 <Container fluid className='text-center'>
                     <div className='section-title text-center mb-55'>
-                        <h2>new arrival</h2>
+                        <h2>new arrival &nbsp;
+                            <a className='btn btn-sm ml-2 mx-1 site-btn' onClick={this.previous}><i className='fa fa-angle-left'></i></a>
+                            <a className='btn btn-sm ml-2 mx-1 site-btn' onClick={this.next}><i className='fa fa-angle-right'></i></a>
+                        </h2>
                         <p>some of our exclusive collection, you may like</p>
                     </div>
                     <Row>
-                        <Slider {...settings}>
+                        <Slider ref={c => (this.slider=c)} {...settings}>
                             <div>
-                                <h3>1</h3>
+                                <Card className='card image-box w-100'>
+                                    <img className='center w-75' src="https://images-na.ssl-images-amazon.com/images/I/61K8lMf1QnL.__AC_SX300_SY300_QL70_FMwebp_.jpg" />
+                                    <Card.Body>
+                                        <p className='product-name-on-card'>realme phone</p>
+                                        <p className='product-price-on-card'>price: $150</p>
+                                    </Card.Body>
+                                </Card>
                             </div>
                             <div>
                                 <Card className='card image-box w-100'>
@@ -67,7 +91,13 @@ class NewArrival extends Component {
                                 </Card>
                             </div>
                             <div>
-                                <h3>3</h3>
+                                <Card className='card image-box w-100'>
+                                    <img className='center w-75' src="https://images-na.ssl-images-amazon.com/images/I/61K8lMf1QnL.__AC_SX300_SY300_QL70_FMwebp_.jpg" />
+                                    <Card.Body>
+                                        <p className='product-name-on-card'>realme phone</p>
+                                        <p className='product-price-on-card'>price: $150</p>
+                                    </Card.Body>
+                                </Card>
                             </div>
                             <div>
                                 <Card className='card image-box w-100'>
@@ -79,7 +109,13 @@ class NewArrival extends Component {
                                 </Card>
                             </div>
                             <div>
-                                <h3>5</h3>
+                                <Card className='card image-box w-100'>
+                                    <img className='center w-75' src="https://images-na.ssl-images-amazon.com/images/I/61K8lMf1QnL.__AC_SX300_SY300_QL70_FMwebp_.jpg" />
+                                    <Card.Body>
+                                        <p className='product-name-on-card'>realme phone</p>
+                                        <p className='product-price-on-card'>price: $150</p>
+                                    </Card.Body>
+                                </Card>
                             </div>
                             <div>
                                 <Card className='card image-box w-100'>
@@ -91,7 +127,13 @@ class NewArrival extends Component {
                                 </Card>
                             </div>
                             <div>
-                                <h3>7</h3>
+                                <Card className='card image-box w-100'>
+                                    <img className='center w-75' src="https://images-na.ssl-images-amazon.com/images/I/61K8lMf1QnL.__AC_SX300_SY300_QL70_FMwebp_.jpg" />
+                                    <Card.Body>
+                                        <p className='product-name-on-card'>realme phone</p>
+                                        <p className='product-price-on-card'>price: $150</p>
+                                    </Card.Body>
+                                </Card>
                             </div>
                             <div>
                                 <Card className='card image-box w-100'>
