@@ -19,7 +19,7 @@
 .accordion:hover {
     color: #ffffff;
     font-weight: 400;
-    background-color: #051b35;
+    background-color: #051b35 !important;
 }
 
 .accordion:after {
@@ -38,6 +38,7 @@ hover {
 .panel {
     padding: 0 10px;
     background-color: white;
+    color: black;
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.2s ease-out;
