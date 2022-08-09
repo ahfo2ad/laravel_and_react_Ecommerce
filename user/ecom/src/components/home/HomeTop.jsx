@@ -7,9 +7,10 @@ class HomeTop extends Component {
     render() {
         return (
             <Fragment>
-                <Container fluid className='p-0 m-0 overflow-hidden'>
+                <Container fluid className='p-0 m-0 overflow-hidden g-0'>
                     
-                    <Row>
+                    {/* <div className='overflow-hidden'> */}
+                    <Row className='gx-0'>
                         <Col lg={3} md={3} sm={12}>
                             <MegaMenu />
                         </Col>
@@ -17,6 +18,7 @@ class HomeTop extends Component {
                             <Slider />
                         </Col>
                     </Row>
+                    {/* </div> */}
                 </Container>
             </Fragment>
         );
