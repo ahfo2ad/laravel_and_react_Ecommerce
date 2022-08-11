@@ -20,5 +20,9 @@
 }
 
 .TopSectionDown {
-    margin-bottom: 55px;
+    margin-bottom: 80px;
+}
+
+.fixpos {
+    width: -webkit-fill-available;
 }
