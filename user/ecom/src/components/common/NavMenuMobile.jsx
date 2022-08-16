@@ -2,7 +2,42 @@ import React, { Component, Fragment } from 'react';
 import { Navbar, Container, Row, Col, Button } from 'react-bootstrap';
 import Logo from "../../assets/images/easyshop.png"
 import { Link } from "react-router-dom";
+import MegaMenuMobile from '../home/MegaMenuMobile';
 class NavMenuMobile extends Component {
+
+    constructor() {
+        super();
+        this.state = {
+            sideNavState: "sideNavClose",
+            contentOverState: "ContentOverlayClose" 
+        }
+    }
+
+    menuBarClickHandler=()=> {
+        this.sideNavClickHandler();
+    }
+
+    ContentOverlayClickHandler=()=> {
+        this.sideNavClickHandler();
+    }
+
+    sideNavClickHandler=()=> {
+        let sideNavState = this.state.sideNavState;
+        let contentOverState = this.state.contentOverState;
+        if (sideNavState === "sideNavOpen") {
+            this.setState({ 
+                sideNavState: "sideNavClose",
+                contentOverState: "ContentOverlayClose"
+            })
+        }
+        else {
+            this.setState({
+                sideNavState: "sideNavOpen",
+                contentOverState: "ContentOverlayOpen"
+            })
+        }
+    }
+
     render() {
         return (
             <Fragment>
@@ -10,7 +45,7 @@ class NavMenuMobile extends Component {
                     <Container fluid className='fixed-top shadow-sm p-2 mb-0 bg-white'>
                         <Row className='fixpos align-items-center'>
                             <Col xl={4} lg={4} md={4} sm={12} xs={12}>
-                                <Button className='cart-btn'>
+                                <Button className='btn' onClick={this.menuBarClickHandler}>
                                     <i className='fa fa-bars'></i>
                                 </Button>
                                 <Link to={"/"}><img className='nav-logo' src={Logo} /></Link>
@@ -22,15 +57,10 @@ class NavMenuMobile extends Component {
                             
                         </Row>
                     </Container>
-                    <div className='sideNavOpen'>
-                        <hr className='w-80' />
-                        <div className='list-group'>
-                            <a className='list-group-item nav-font nav-itemmenu list-group-item-action'>
-                                <i className='fa fa-home mr-2'> Home</i>
-                            </a>
-                        </div>
+                    <div className={this.state.sideNavState}>
+                        <MegaMenuMobile />
                     </div>
-                    <div className='ContentOverlayOpen'>
+                    <div className={this.state.contentOverState} onClick={this.ContentOverlayClickHandler}>
 
                     </div>
                 </div>
