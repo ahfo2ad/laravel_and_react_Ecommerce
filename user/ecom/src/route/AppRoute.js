@@ -8,6 +8,7 @@ import {
 } from "react-router-dom"
 import ContactPage from '../pages/ContactPage';
 import HomePage from '../pages/HomePage';
+import PurchasePage from '../pages/PurchasePage';
 import UserLoginPage from '../pages/UserLoginPage';
 
 class AppRoute extends Component {
@@ -18,6 +19,8 @@ class AppRoute extends Component {
                     <Route path='/' element={<HomePage />} />
                     <Route path='/login' element={<UserLoginPage />} />
                     <Route path='/contact' element={<ContactPage />} />
+
+                    <Route path='/purchase' element={<PurchasePage />} />
                 </Routes>
             </Fragment>
         );
