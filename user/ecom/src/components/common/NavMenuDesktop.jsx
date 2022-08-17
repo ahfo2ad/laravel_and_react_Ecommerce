@@ -62,7 +62,7 @@ class NavMenuDesktop extends Component {
                                 </Col>
 
                                 <Col className='p-1' xl={4} lg={4} md={4} sm={12} xs={12}>
-                                    <Link to={"/"} className="btn">
+                                    <Link to={"/favourite"} className="btn">
                                         <i className='fa fa-heart h4'></i>
                                         <sup>
                                             <span className='badge text-white bg-danger'>3</span>
