@@ -29,8 +29,8 @@ export class FooterDesktop extends Component {
                             <Col lg={3} md={3} sm={6} xs={12}>
                                 <h5 className='footer-menu-title text-uppercase'>more info</h5>
                                 <Link to={"/purchase"} className="footer-link">how to purchase</Link> <br />
-                                <Link to={"/"} className="footer-link">privacy policy</Link> <br />
-                                <Link to={"/"} className="footer-link">refund policy</Link> <br />
+                                <Link to={"/privacy"} className="footer-link">privacy policy</Link> <br />
+                                <Link to={"/refund"} className="footer-link">refund policy</Link> <br />
                             </Col>
                             <Col lg={3} md={3} sm={6} xs={12}>
                                 <h5 className='footer-menu-title text-uppercase'>download apps</h5>
