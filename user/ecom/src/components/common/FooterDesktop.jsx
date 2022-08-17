@@ -23,7 +23,7 @@ export class FooterDesktop extends Component {
                                 <h5 className='footer-menu-title text-uppercase'>the company</h5>
                                 <Link to={"/"} className="footer-link">about us</Link> <br />
                                 <Link to={"/"} className="footer-link">company profile</Link> <br />
-                                <Link to={"/"} className="footer-link">contact us</Link> <br />
+                                <Link to={"/contact"} className="footer-link">contact us</Link> <br />
                                 
                             </Col>
                             <Col lg={3} md={3} sm={6} xs={12}>
