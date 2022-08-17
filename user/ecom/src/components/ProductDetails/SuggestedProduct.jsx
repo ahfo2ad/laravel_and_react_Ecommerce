@@ -2,13 +2,13 @@ import React, { Component, Fragment } from 'react';
 import { Container, Row, Col, Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
-class FeaturedProducts extends Component {
+class SuggestedProduct extends Component {
     render() {
         return (
             <Fragment>
                 <Container fluid className='text-center'>
                     <div className='section-title text-center mb-55'>
-                        <h2>Featured Product</h2>
+                        <h2>You May Also Like</h2>
                         <p>some of our exclusive collection, you may like</p>
                     </div>
                     <Row>
@@ -75,4 +75,4 @@ class FeaturedProducts extends Component {
     }
 }
 
-export default FeaturedProducts;
+export default SuggestedProduct;
