@@ -36,6 +36,8 @@ export class FooterDesktop extends Component {
                                 <h5 className='footer-menu-title text-uppercase'>download apps</h5>
                                 <a href='#'><img src={Apple} /></a>
                                 <a href='#'><img className='mt-2' src={Google} /></a>
+                                <p className='mt-2 mb-0'>Choose Your Language</p> 
+                                <div id='google_translate_element' className='d-flex'></div>
                             </Col>
                         </Row>
                     </Container>
