@@ -1,7 +1,86 @@
 import React, { Component, Fragment } from 'react';
 import { Button, Col, Container, Form, Row } from 'react-bootstrap';
+import Validation from '../../Validation/Validation';
+import axios from 'axios';
+import AppURL from '../../api/AppURL';
 
 export class Contact extends Component {
+
+    constructor() {
+        super();
+        this.state={
+            name:"",
+            email:"",
+            message:""
+        }
+    }
+
+    nameOnChange =(event)=> {
+        let name = event.target.value;
+        this.setState({ name :name});
+        // alert(name);
+    }
+
+    emailOnChange = (event) => {
+        let email = event.target.value;
+        this.setState({ email: email });
+        // alert(email);
+    }
+
+    messageOnChange = (event) => {
+        let message = event.target.value;
+        this.setState({ message: message });
+        // alert(message);
+    }
+
+    onFormSubmit = (event) => {
+        // alert("hi");
+        let name = this.state.name;
+        let email = this.state.email;
+        let message = this.state.message;
+        let sendBtn = document.getElementById('sendBtn');
+        let formContact = document.getElementById('formContact');
+
+        if (name.length ==0) {
+            alert("name can't be empty")
+        }
+        else if (email.length == 0) {
+            alert("email can't be empty")
+        }
+        else if (message.length == 0) {
+            alert("message can't be empty")
+        }
+        else if (!(Validation.NameRegix).test(name)) {
+            alert("invalid name");
+        }
+        else {
+            sendBtn.innerHTML = "Sending...";
+            let MyFormData = new FormData();
+            MyFormData.append("name", name)
+            MyFormData.append("email", email)
+            MyFormData.append("message", message)
+
+            axios.post(AppURL.PostContact,MyFormData)
+                .then(function (response) {
+                    if(response.status == 200 && response.data == 1) {
+                        alert("message sent successfully");
+                        sendBtn.innerHTML = "Send";
+                        formContact.reset();
+                    }
+                    else {
+                        alert("error!");
+                        sendBtn.innerHTML = "Send";
+                    }
+                })
+                .catch(function (error) {
+                    alert(error);
+                    sendBtn.innerHTML = "Send";
+                });
+        }
+
+        event.preventDefault();
+    }
+
     render() {
         return (
             <Fragment>
@@ -10,13 +89,13 @@ export class Contact extends Component {
                         <Col className='shadow-sm bg-white mt-2' lg={12} md={12} sm={12} xs={12}>
                             <Row className='text-center w-100 align-items-center'>
                                 <Col className='d-flex justify-content-center' xl={6} lg={6} md={6} sm={12} xs={12}>
-                                    <Form className='onboardForm'>
+                                    <Form id='formContact' onSubmit={this.onFormSubmit} className='onboardForm'>
                                         <h4 className='section-title-login'>CONTACT WITH US</h4>
                                         <h4 className='section-sub-title'>Please Contact Us</h4>
-                                        <input className='form-control m-2' type="text" placeholder='enter mobile phone' />
-                                        <input className='form-control m-2' type="email" placeholder='enter your email' />
-                                        <input className='form-control m-2' type="text" placeholder='enter your message' />
-                                        <Button className='site-btn-login btn btn-block m-2'>Send</Button>
+                                        <input onChange={this.nameOnChange} className='form-control m-2' type="text" placeholder='enter your name' />
+                                        <input onChange={this.emailOnChange} className='form-control m-2' type="email" placeholder='enter your email' />
+                                        <Form.Control onChange={this.messageOnChange} className='form-control m-2' placeholder='Message' as="textarea" rows={3} />
+                                        <Button id='sendBtn' type='submit' className='site-btn-login btn btn-block m-2'>Send</Button>
                                     </Form>
                                 </Col>
                                 <Col className='p-0 m-0 Desktop' lg={6} md={6} sm={6} xs={6}>
